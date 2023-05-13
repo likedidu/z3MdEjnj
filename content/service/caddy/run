@@ -1,7 +1,11 @@
 #!/bin/sh
 
 exec 2>&1
-exec cp /workdir/nginx.conf > /etc/nginx/conf.d/server.conf 
+exec sed -e "/^#/d"\
+    -e "s/\${PORT}/${PORT}/g"\
+    -e "s|\${SecretPATH}|${SecretPATH}|g"\
+    -e "$s"\
+    /workdir/nginx.conf > /etc/nginx/conf.d/server.conf 
 exec cat /etc/nginx/conf.d/server.conf 
 exec rm -rf /etc/nginx/sites-enabled/default
 exec nginx -g 'daemon off;'
