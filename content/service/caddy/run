@@ -1,7 +1,6 @@
 #!/bin/sh
 
 exec 2>&1
-exec touch /etc/nginx/conf.d/server.conf
 exec sed -e "/^#/d"\
     -e "s/\${PORT}/${PORT}/g"\
     -e "s|\${SecretPATH}|${SecretPATH}|g"\
