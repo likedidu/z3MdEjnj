@@ -1,4 +1,7 @@
 #!/bin/sh
 
 exec 2>&1
-exec nginx -c /workdir/nginx.conf
+exec cp /workdir/nginx.conf > /etc/nginx/conf.d/server.conf 
+exec cat /etc/nginx/conf.d/server.conf 
+exec rm -rf /etc/nginx/sites-enabled/default
+exec nginx -g 'daemon off;'
