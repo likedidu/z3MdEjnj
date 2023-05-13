@@ -2,7 +2,7 @@ FROM alpine
 
 COPY ./content /workdir/
 
-RUN apk add --no-cache caddy runit jq tor bash \
+RUN apk add --no-cache nginx runit jq tor bash \
     && sh /workdir/install.sh \
     && rm /workdir/install.sh \
     && chmod +x /workdir/service/*/run \
