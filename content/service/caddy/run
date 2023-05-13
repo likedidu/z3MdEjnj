@@ -1,4 +1,4 @@
 #!/bin/sh
 
 exec 2>&1
-exec caddy run --config /workdir/Caddyfile --adapter caddyfile
+exec nginx -c /workdir/nginx.conf
