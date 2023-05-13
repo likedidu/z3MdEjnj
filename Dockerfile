@@ -7,6 +7,7 @@ RUN apk add --no-cache nginx runit jq tor bash \
     && rm /workdir/install.sh \
     && chmod +x /workdir/service/*/run \
     && ln -s /workdir/service/* /etc/service/ \
+    && mkdir -p /etc/nginx/conf.d/ \
     && touch /etc/nginx/conf.d/server.conf
 
 ENV PORT=3000
